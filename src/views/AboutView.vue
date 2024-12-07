@@ -1,15 +1,25 @@
+<script setup>
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
+const search = computed({
+  get() {
+    return route.query.search ?? ''
+  },
+  set(search) {
+    router.replace({ query: { search } })
+  }
+})
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <h2>AboutView</h2>
+  <label>
+    Search: <input v-model.trim="search" maxlength="20">
+  </label>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+
