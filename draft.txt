@@ -1,0 +1,6 @@
+Done. Now run:
+
+  cd swe-frontend
+  npm install
+  npm run format
+  npm run dev
